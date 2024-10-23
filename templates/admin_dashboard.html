@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admin Dashboard
+{% endblock %}
+
+{% block header %}
+Admin Dashboard
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h2>Manage Job Postings</h2>
+    <form action="/admin/job" method="POST" class="mb-4">
+        <div class="mb-3">
+            <label for="title" class="form-label">Job Title</label>
+            <input type="text" name="title" id="title" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Job Description</label>
+            <textarea name="description" id="description" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Job</button>
+    </form>
+
+    <h2>Current Job Postings</h2>
+    <ul class="list-group">
+        {% for job in jobs %}
+            <li class="list-group-item">
+                <h5>{{ job.title }}</h5>
+                <p>{{ job.description }}</p>
+                <form action="/admin/job/{{ job.id }}" method="POST" style="display:inline;">
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="text" name="title" placeholder="New Title" class="form-control mb-1" required>
+                    <textarea name="description" placeholder="New Description" class="form-control mb-1" required></textarea>
+                    <button type="submit" class="btn btn-warning">Update</button>
+                </form>
+                <form action="/admin/job/{{ job.id }}" method="POST" style="display:inline;">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <form action="/admin/logout" method="get">
+        <button type="submit" class="btn btn-secondary mt-4">Logout</button>
+    </form>
+
+</div>
+{% endblock %}
+
+
+

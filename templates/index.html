@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ page_title }}</h2>
+    <hr>
+    <p>
+        Becoming a parent for the first time is an incredible journey filled with joy, challenges, 
+        and countless questions. This guide is designed to provide you with essential information 
+        and support on mental health, nanny advice, and achieving a work-life balance after childbirth.
+    </p>
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3>Mental Health</h3>
+            <h3>Taking Care of Your Mental Wellbeing</h3>
+            <p>
+                Parenthood can be overwhelming, and it’s crucial to prioritize your mental health. 
+                Here are some tips to help you navigate this new chapter:
+            </p>
+            <ul>
+                <li>
+                    Acknowledge Your Feelings: It’s normal to experience a range of emotions,
+                    from joy to anxiety. Allow yourself to feel and express these emotions without judgment.
+                </li>
+                <li>
+                    Seek Support: Don’t hesitate to reach out to friends, family, or professional counselors.
+                    Many organizations offer helplines and online support groups specifically for new parents.
+                </li>
+                <li>
+                    Practice Self-Care: Make time for activities that relax and rejuvenate you, whether it’s a short
+                    walk, reading a book, or practicing mindfulness.
+                </li>
+                <li>
+                    Stay Connected: Maintain social connections to avoid feelings of isolation. Regularly check in with
+                    loved ones and share your experiences.
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <img src="{{ url_for('static', filename='img/sad-parent.jpeg') }}">
+        </div>
+    </div>
+
+    
+
+    <div class="row featurette">
+        <div class="col-md-5">
+            <img src="{{ url_for('static', filename='img/nanny.jpg') }}" class="img-fluid">
+        </div>
+        <div class="col-md-7">
+            <h3>Nanny Advice</h3>
+            <h3>Finding and Working with a Nanny</h3>
+            <p>
+                Choosing the right nanny can provide invaluable support and peace of mind. 
+                Here are some tips to ensure a smooth experience:
+            
+                <ol>
+                    <li>
+                        Start Early: Begin your search well before you need a nanny. 
+                        This gives you ample time to find someone who fits your family’s needs.
+                    </li>
+                    <li>
+                        Clear Communication: Set clear expectations regarding duties, schedules, 
+                        and house rules. Regular communication helps build a strong, trusting relationship.
+                    </li>
+                    <li>
+                        Trial Period: Consider a trial period to ensure the nanny is a good fit for your family. 
+                        This allows both parties to adjust and address any concerns early on.
+                    </li>
+                    <li>
+                        Routine and Consistency: Establish a consistent routine for your child. This helps them 
+                        feel secure and makes transitions smoother.
+                    </li>
+              
+                </ol>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h3>Money Worries?</h3>
+            <h3>These Few Tips Might Help</h3>
+            <p>
+                <h4>Create a Budget</h4>
+                <ul>
+                    <li>
+                        Track Your Expenses: Start by tracking your current expenses to understand where your money is going. 
+                        This will help you identify areas where you can cut back and save for baby-related expenses. 
+                        Plan for Baby Expenses: Include costs for baby gear, diapers, formula, and medical expenses in 
+                        your budget. It’s also wise to set aside funds for unexpected costs.
+                    </li>
+                </ul>
+                <h4>Build an Emergency Fund</h4>
+                <ul>
+                    <li>
+                        Increase Your Savings: Aim to save three to six months’ worth of living expenses. 
+                        This fund will provide a safety net for unexpected events like job loss or medical emergencies.
+                    </li>
+                </ul>
+                <h4>Consider Insurance</h4>
+                <ul>
+                    <li>
+                        Life and Disability Insurance: Ensure you have adequate life and disability insurance to 
+                        protect your family financially in case of unforeseen circumstances.
+                        Health Insurance: Review your health insurance policy to understand what is covered for 
+                        maternity and pediatric care. Consider adding your baby to your policy as soon as possible.
+                    </li>
+                </ul>
+                <h4>Shop Smart</h4>
+                <ul>
+                    <li>
+                        Buy Second-Hand: Consider buying gently used baby items like clothes, toys, and furniture. 
+                        Babies outgrow things quickly, so this can save a lot of money.
+                        Look for Deals: Take advantage of sales, discounts, and coupons for baby products. 
+                        Many stores offer baby registries with discounts and freebies.
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-md-5">
+            <img src="{{ url_for('static', filename='img/money-img.jpeg') }}">
+        </div>
+    </div>
+{% endblock %}

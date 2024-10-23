@@ -1,0 +1,19 @@
+# Ignore Python cache
+__pycache__/
+
+# Ignore virtual environment folder
+venv/
+
+# Ignore sensitive data files
+*.env
+config/*.yaml
+
+# Ignore database files
+*.sqlite3
+
+# Ignore log files
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
