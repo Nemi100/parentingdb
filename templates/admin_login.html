@@ -29,5 +29,55 @@ Admin Login
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
-</div>
+      
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerAdminModal">
+        Register New Admin
+    </button>
+
+    <div class="modal fade" id="registerAdminModal" tabindex="-1" aria-labelledby="registerAdminModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerAdminModalLabel">Register New Admin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerAdminForm" action="{{ url_for('admin_register') }}" method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        $('#registerAdminForm').on('submit', function(event) {
+            event.preventDefault();
+            $.ajax({
+                url: '{{ url_for("admin_register") }}',
+                method: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    alert('Admin registered successfully!');
+                    $('#registerAdminModal').modal('hide');
+                    $('#registerAdminForm')[0].reset();
+                },
+                error: function(error) {
+                    alert('Error registering admin.');
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}

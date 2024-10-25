@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, flash
-from sqlalchemy import create_engine, Column, Integer, String, Text, MetaData
-from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy import create_engine, Column, Integer, String, Text, MetaData, Float, ForeignKey
+from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -18,7 +18,7 @@ class Admin(Base):
     __tablename__ = 'admin'
     id = Column(Integer, primary_key=True)
     email = Column(String(100), nullable=False)
-    password = Column(String(255), nullable=False)  # Increase length to accommodate hashed passwords
+    password = Column(String(255), nullable=False)  
 
 
 
@@ -28,10 +28,14 @@ class Job(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String(100), nullable=False)
     description = Column(Text, nullable=False)
+    salary = Column(Float, nullable=True)
+    location = Column(String(100), nullable=True)
+    admin_id = Column(Integer, ForeignKey('admin.id'))
+    admin = relationship('Admin', back_populates='jobs')
 
-metadata.create_all(engine, tables=[Admin.__table__, Job.__table__])
+Admin.jobs = relationship('Job', order_by=Job.id, back_populates='admin')
 
-
+Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session_db = Session()
 
@@ -56,7 +60,7 @@ def career():
     jobs = session_db.query(Job).all()
     return render_template('career.html', jobs=jobs)
 
-@app.route('/admin/login', methods=['Get', 'POST'])
+@app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
         email = request.form['email']
@@ -64,10 +68,25 @@ def admin_login():
         admin = session_db.query(Admin).filter_by(email=email).first()
         if admin and check_password_hash(admin.password, password):
             session['admin_logged_in'] = True
+            session['admin_id'] = admin.id  
             return redirect(url_for('admin_dashboard'))
         flash('Invalid credentials.', 'error')
         return redirect(url_for('admin_login'))
     return render_template('admin_login.html')
+
+@app.route('/admin/register', methods=['GET', 'POST'])
+def admin_register():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        hashed_password = generate_password_hash(password)
+        new_admin = Admin(email=email, password=hashed_password)
+        session_db.add(new_admin)
+        session_db.commit()
+        flash('Admin registered successfully.', 'success')
+        return redirect(url_for('admin_login'))
+    return render_template('admin_register.html')
+
 
 @app.route('/admin/dashboard')
 def admin_dashboard():
@@ -88,10 +107,33 @@ def add_job():
         return redirect(url_for('admin_login'))
     title = request.form['title']
     description = request.form['description']
-    new_job = Job(title=title, description=description)
+    salary = request.form['salary']
+    location = request.form['location']
+    admin_id = session.get('admin_id') 
+    new_job = Job(title=title, description=description, salary=salary, location=location, admin_id=admin_id)
     session_db.add(new_job)
     session_db.commit()
+    flash('Job added successfully.', 'success')
     return redirect(url_for('admin_dashboard'))
+
+def update_job(id):
+    title = request.form['title']
+    description = request.form['description']
+    salary = request.form['salary']
+    location = request.form['location']
+    job = session_db.query(Job).filter_by(id=id).first()
+    if job is None:
+        flash('Job not found.', 'error')
+        return redirect(url_for('admin_dashboard'))
+    job.title = title
+    job.description = description
+    job.salary = salary
+    job.location = location
+    session_db.commit()
+    flash('Job updated successfully.', 'success')
+    return redirect(url_for('admin_dashboard'))
+
+
 
 @app.route('/admin/job/<int:id>', methods=['POST'])
 def modify_job(id):
@@ -104,18 +146,6 @@ def modify_job(id):
         return delete_job(id)
     return jsonify({'message': 'Invalid method'}), 405
 
-def update_job(id):
-    title = request.form['title']
-    description = request.form['description']
-    job = session_db.query(Job).filter_by(id=id).first()
-    if job is None:
-        flash('Job not found.', 'error')
-        return redirect(url_for('admin_dashboard'))
-    job.title = title
-    job.description = description
-    session_db.commit()
-    flash('Job updated successfully.', 'success')
-    return redirect(url_for('admin_dashboard'))
 
 def delete_job(id):
     job = session_db.query(Job).filter_by(id=id).first()

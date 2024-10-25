@@ -9,9 +9,13 @@
 6. [Routes](#routes)
 7. [Testing](#testing)
 8. [Deployment](#deployment)
-9. [License](#license)
-10. [Contributing](#contributing)
-11. [Contact](#contact)
+9. [admin_dashboard](#admin_dashboard)
+10. [base](#base)
+11. [index](#index)
+12. [career](#career)
+13. [admin_login](#admin_login)
+14. [Contributing](#contributing)
+15. [Contact](#contact)
 
 ## Introduction
 A website for parents boosting an admin login for CRUD operations on the career page.
@@ -23,7 +27,7 @@ A website for parents boosting an admin login for CRUD operations on the career 
 - Flash messages for success/error notifications
 - Secure password handling
 
-## Requirements
+## Technologies
 - Python 3.7+
 - Flask
 - SQLAlchemy
@@ -37,16 +41,20 @@ A website for parents boosting an admin login for CRUD operations on the career 
    git clone https://github.com/Nemi100/parentingdb.git
    cd parentingdb
 
-2. **Create and activate virtual environment.
+2. **Create and activate virtual environment**:
+   python -m venv venv
+   venv/bin/activate
 
-2. **Install dependencies.(Check Requirements).
+2. **Install dependencies**:
+   pip install  (Check Requirements)
 
-2. **Create Database.(i used postgres).
+2. Create Database.(i used postgres).
 
 ## Usage
-1. **Run the application.(python app.py).
+1. **Run the application**:
+   python app.py
 
-2. **Access the application and go to your localhost: http://localhost:5000/.
+2. Access the application and go to your localhost: http://localhost:5000/.
 
 ## Routes
 
@@ -62,16 +70,19 @@ A website for parents boosting an admin login for CRUD operations on the career 
 
 ## Manuel Testing
 
-**Admin login:
+1.Admin login:
 - At the /admin/login
 - valid and invalid credentials can be entered to validate proper data handling
 
-**Job Postings:
-- 
+2.Job Postings:
+- Loging in will help navigate to /admin/dashboard/
 - valid and invalid credentials can be entered to validate proper data handling
 
 
-
+## Contact
+For any questions, please contact:
+-Name: Tekena Nemi
+-Email: teksity@gmail.com
 
 
      

@@ -21,21 +21,35 @@ Admin Dashboard
             <label for="description" class="form-label">Job Description</label>
             <textarea name="description" id="description" class="form-control" required></textarea>
         </div>
+        <div class="mb-3">
+            <label for="salary" class="form-label">Salary</label>
+            <input type="number" step="0.01" name="salary" id="salary" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="location" id="location" class="form-control">
+        </div>
         <button type="submit" class="btn btn-primary">Add Job</button>
     </form>
-
+<!--job update & delete form below-->
     <h2>Current Job Postings</h2>
     <ul class="list-group">
         {% for job in jobs %}
             <li class="list-group-item">
                 <h5>{{ job.title }}</h5>
                 <p>{{ job.description }}</p>
+                <p><strong>Salary:</strong> {{ job.salary }}</p>
+                <p><strong>Location:</strong> {{ job.location }}</p>
+                <p><strong>Posted by:</strong> {{ job.admin.email }}</p>
                 <form action="/admin/job/{{ job.id }}" method="POST" style="display:inline;">
                     <input type="hidden" name="_method" value="PUT">
                     <input type="text" name="title" placeholder="New Title" class="form-control mb-1" required>
                     <textarea name="description" placeholder="New Description" class="form-control mb-1" required></textarea>
+                    <input type="number" step="0.01" name="salary" placeholder="New Salary" class="form-control mb-1">
+                    <input type="text" name="location" placeholder="New Location" class="form-control mb-1">
                     <button type="submit" class="btn btn-warning">Update</button>
                 </form>
+
                 <form action="/admin/job/{{ job.id }}" method="POST" style="display:inline;">
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -50,6 +64,5 @@ Admin Dashboard
 
 </div>
 {% endblock %}
-
 
 
