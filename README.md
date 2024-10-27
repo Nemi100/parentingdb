@@ -77,18 +77,20 @@ A website for parents boosting an admin login for CRUD operations on the career 
 2.Job Postings:
 - Loging in will help navigate to /admin/dashboard/
 - valid and invalid credentials can be entered to validate proper data handling
-Testing
-Form Testing
-Element	Action	Expected Result	Pass/Fail
-Username	Text input	Text displayed to user	Pass
-Password	Text input	Password is hidden to user	Pass
-Show password icon	Click	Password is unveiled to user	Pass
-Login button (fields correct)	Click	Redirect to Homepage	Pass
-Login button (fields incorrect)	Click	Reload login page	Pass
-Error message (fields incorrect)		Error message to user	Pass
-Login button (Username not found)	Click	Reload login page, error message to user	Pass
-Login button (Password incorrect)	Click	Reload login page, error message to user	Pass
-Redirect Link 'Register Now'	Click	Redirect to Register page	Pass
+
+### Form Testing
+| Element                         | Action        | Expected Result                         | Pass/Fail |
+|---------------------------------|---------------|-----------------------------------------|-----------|
+| Username                        | Text input    | Text displayed to user                  | Pass      |
+| Password                        | Text input    | Password is hidden to user              | Pass      |
+| Show password icon              | Click         | Password is unveiled to user            | Pass      |
+| Login button (fields correct)   | Click         | Redirect to Homepage                    | Pass      |
+| Login button (fields incorrect) | Click         | Reload login page                       | Pass      |
+| Error message (fields incorrect)|               | Error message to user                   | Pass      |
+| Login button (Username not found)| Click        | Reload login page, error message to user | Pass      |
+| Login button (Password incorrect)| Click        | Reload login page, error message to user | Pass      |
+| Redirect Link 'Register Now'    | Click         | Redirect to Register page               | Pass      |
+
 
 ## Contact
 For any questions, please contact:
