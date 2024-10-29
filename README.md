@@ -126,28 +126,46 @@ A website for parents boosting an admin login for CRUD operations on the career 
 | Username                        | Text input    | Text displayed to user                  | Pass      |
 | Password                        | Text input    | Password is hidden to user              | Pass      |
 | Show password icon              | Click         | Password is unveiled to user            | Pass      |
-| Login button (fields correct)   | Click         | Redirect to Homepage                    | Pass      |
-| Login button (fields incorrect) | Click         | Reload login page                       | Pass      |
-| Error message (fields incorrect)|               | Error message to user                   | Pass      |
-| Login button (Username not found)| Click        | Reload login page, error message to user | Pass      |
-| Login button (Password incorrect)| Click        | Reload login page, error message to user | Pass      |
+| Login button (fields correct)   | Click         | Redirect to hidden Admin dashboard                    | Pass      |
+| Login button (fields incorrect) | Click         | Input fields requirements are displayed                       | Pass      |
+| Error message (unregistered User)|        Click       | Invalid Credentials is displayed                   | Pass      |
+| Login button (register)| Click        | Regitration form modal displays | Pass      |
+| Logout button | Click        | Reload login page | Pass      |
 | Redirect Link 'Register Now'    | Click         | Redirect to Register page               | Pass      |
+
+### The Username visibilty test as displayed below
+![Username visibility test](static/img/username_test.jpg)
+
+### Password hidden
+![hidden password test](static/img/passwordtest_hidden.jpg)
+
+### Admin login success
+![admin login success](static/img/page_redirection%20on%20click.jpg)
+
+### Admin login failure
+![unregistered user input](static/img/unregistered%20admin%20error%20message.jpg)
+
+### Invalid form input
+![login invalid input](static/img/incorect%20fields.jpg)
+
+### New Admin Registration
+![new user registration button](static/img/register_newadmin%20button.jpg)
+
+### Admin logout/redirecting to admin login page
+![log out button](static/img/redirecting_to_login.jpg)
+
+
+
+
 
 ### Tables
 - Admin: This stores information about administration.
 - Job: This stores job postings with reference to the admin who posted them.
 
 ### Database Relationship
-+-------------+          +-------------+
-|    Admin    |          |     Job     |
-+-------------+          +-------------+
-| id          |          | id          |
-| email       | 1      * | title       |
-| password    +----------+ description |
-+-------------+          | salary      |
-                         | location    |
-                         | admin_id    |
-                         +-------------+
+![alt text](static/img/parentingdb_RelationDiagram.jpg)
+
+
 
 
 ### Admin Table
@@ -176,20 +194,21 @@ A website for parents boosting an admin login for CRUD operations on the career 
 
 We would like to thank the following individuals and organizations for their contributions to this project:
 
- - [Python Flask CRUD Application with Mysql introduction](https://www.youtube.com/watch?v=Pu9XhFJduEw)
+ - [Parwiz Forogh](https://www.youtube.com/watch?v=Pu9XhFJduEw&t=2s)
  - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [Python Flask CRUD API- SQLAlchemy & Postgres](https://www.youtube.com/watch?v=OLsVfmjEpSc&t=95s)
- - [Pexels Images] (https://www.pexels.com/search/concert/)
+ - [TechWithGio](https://www.youtube.com/watch?v=OLsVfmjEpSc&t=95s)
+ - [Pexels Images](https://www.pexels.com/search/concert/)
  - [Code Institute Flask framework](https://www.youtube.com/watch?v=Semy2AHoclk)
 
- - [Flask CRUD Application Full Course With SQLAlchemy| Python Flask] (https://www.youtube.com/watch?v=XTpLbBJTOM4&t=276s)
+ - [Parwiz Forogh](https://www.youtube.com/watch?v=XTpLbBJTOM4&t=276s)
+
 
 
 ## Contact
-For any questions, please contact:
--Name: Tekena Nemi
--Email: teksity@gmail.com
+- **For any questions, please contact**:
+   Name: Tekena Nemi
 
+- Email: teksity@gmail.com
 
      
 
