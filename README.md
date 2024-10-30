@@ -3,22 +3,26 @@
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
-3. [Requirements](#requirements)
+3. [Ux](#uX) 
 4. [Installation](#installation)
 5. [Usage](#usage)
 6. [Routes](#routes)
 7. [Testing](#testing)
-8. [Deployment](#deployment)
-9. [admin_dashboard](#admin_dashboard)
-10. [base](#base)
-11. [index](#index)
-12. [career](#career)
-13. [admin_login](#admin_login)
-14. [Contributing](#contributing)
-15. [Contact](#contact)
+8. [Known_bugs](#known_bugs)
+9. [Deployment](#deployment)
+10. [admin_dashboard](#admin_dashboard)
+11. [Tables](#tables)
+12. [Future_improvements](#future_improvements)
+13. [Wireframes](#wireframes)
+14. [index](#index)
+15. [career](#career)
+16. [admin_login](#admin_login)
+17. [Contributing](#contributing)
+18. [Contact](#contact)
+
 
 ## Introduction
-A website for parents boosting an admin login for CRUD operations on the career page.
+Parenting.com is a website for parents needs whilst boosting an admin login for CRUD operations on the career page.
 
 
 ## Features
@@ -80,7 +84,7 @@ A website for parents boosting an admin login for CRUD operations on the career 
 - /admin/job: Add job posting (POST)
 - /admin/job/<int:id>: Modify or delete job posting (POST)
 
-## User Story
+## Ux
 1. As a user, I want to register as an admin so i can post and manage jobs.
 - Method: By filling out the registration form.
 - Result: User then gets registered as an admin and then able to log in to the admin    dashboard
@@ -104,7 +108,7 @@ A website for parents boosting an admin login for CRUD operations on the career 
 - Method: Click the delete button on a job posting
 - Expected Result: job posted gets deleted from career page
 
-2
+
 
 
 
@@ -138,6 +142,9 @@ A website for parents boosting an admin login for CRUD operations on the career 
 
 ### Password hidden
 ![hidden password test](static/img/passwordtest_hidden.jpg)
+
+### Password display
+![displayed password test](static/img/password_revealed.png)
 
 ### Admin login success
 ![admin login success](static/img/page_redirection%20on%20click.jpg)
