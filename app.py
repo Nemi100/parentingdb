@@ -10,6 +10,7 @@ app.secret_key = os.environ.get('SECRET_KEY', 'tekena#')
 
 # Database setup
 DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///default.db')
+DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+psycopg2://")
 engine = create_engine(DATABASE_URL)
 Base = declarative_base()
 metadata = MetaData()
