@@ -135,7 +135,7 @@ Parenting.com is a website for parents needs whilst boosting an admin login for 
 | Error message (unregistered User)|        Click       | Invalid Credentials is displayed                   | Pass      |
 | Login button (register)| Click        | Regitration form modal displays | Pass      |
 | Logout button | Click        | Reload login page | Pass      |
-| Redirect Link 'Register Now'    | Click         | Redirect to Register page               | Pass      |
+| Redirect Link 'Register New Admin'    | Click         | Redirect to Register Modal Form              | Pass      |
 
 
 ## Known Bugs
