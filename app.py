@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, flash
 from sqlalchemy import create_engine, Column, Integer, String, Text, MetaData, Float, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
@@ -5,10 +6,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
-app.secret_key = 'tekena#'
+app.secret_key = os.environ.get('SECRET_KEY', 'tekena#')
 
 # Database setup
-DATABASE_URL = "postgresql://postgres:Enitan100%23@localhost:5432/postgres"
+DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///default.db')
 engine = create_engine(DATABASE_URL)
 Base = declarative_base()
 metadata = MetaData()
