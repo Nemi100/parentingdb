@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, flash
-from sqlalchemy import create_engine, Column, Integer, String, Text, MetaData, Float, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, String, Text, MetaData, Float, ForeignKey, MetaData
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -161,4 +161,5 @@ def delete_job(id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)                         
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)                         
