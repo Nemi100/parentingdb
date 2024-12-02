@@ -145,28 +145,28 @@ Parenting.com is a website for parents needs whilst boosting an admin login for 
 -
 
 ### The Username visibilty test as displayed below
-![Username visibility test](static/img/username_test.jpg)
+![Username visibility test](static/img/username-test.jpg)
 
 ### Password hidden
-![hidden password test](static/img/passwordtest_hidden.jpg)
+![hidden password test](static/img/passwordtest-hidden.jpg)
 
 ### Password display
-![displayed password test](static/img/password_revealed.png)
+![displayed password test](static/img/password-revealed.png)
 
 ### Admin login success
-![admin login success](static/img/page_redirection%20on%20click.jpg)
+![admin login success](static/img/page-redirection-onclick.jpg)
 
 ### Admin login failure
-![unregistered user input](static/img/unregistered%20admin%20error%20message.jpg)
+![unregistered user input](static/img/unregistered-adminerror-message.jpg)
 
 ### Invalid form input
-![login invalid input](static/img/incorect%20fields.jpg)
+![login invalid input](static/img/incorect-fields.jpg)
 
 ### New Admin Registration
-![new user registration button](static/img/register_newadmin%20button.jpg)
+![new user registration button](static/img/register-newadmin-button.jpg)
 
 ### Admin logout/redirecting to admin login page
-![log out button](static/img/redirecting_to_login.jpg)
+![log out button](static/img/logout.jpg)
 
 
 
