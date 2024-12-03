@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session, flash
-from sqlalchemy import create_engine, Column, Integer, String, Text, MetaData, Float, ForeignKey, MetaData
+from sqlalchemy import create_engine, Column, Integer, String, Text, MetaData, Float, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from werkzeug.security import generate_password_hash, check_password_hash
 
