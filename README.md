@@ -170,6 +170,7 @@ Parenting.com is a website for parents needs whilst boosting an admin login for 
 
 ### Code validation
 ![code validation](static/img/code-validation.png)
+![code validation](static/img/css-codevalidation.png)
 
 
 

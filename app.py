@@ -4,9 +4,8 @@ from sqlalchemy import create_engine, Column, Integer, String, Text, MetaData, F
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'tekena#')
+app.secret_key = os.environ['SECRET_KEY']
 
 # Database setup
 DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///default.db')
@@ -41,7 +40,7 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session_db = Session()
 
-# Create initial admin if not exists
+
 initial_admin_email = 'admin@example.com'
 initial_admin_password = 'tekena#'
 
