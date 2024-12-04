@@ -180,7 +180,7 @@ Parenting.com is a website for parents needs whilst boosting an admin login for 
 - Job: This stores job postings with reference to the admin who posted them.
 
 ### Database Relationship
-![alt text](static/img/parentingdb_RelationDiagram.jpg)
+![alt text](static/img/parentingdb-RelationDiagram.jpg)
 
 
 
@@ -212,13 +212,13 @@ Parenting.com is a website for parents needs whilst boosting an admin login for 
 ## Wireframes
 - Old fashioned and would rather hold a pen to sketch these 
 - admin dashboard wireframe
-![Admindashboard](static/img/admindashboard%20wireframe.png)
+![Admindashboard](static/img/admindashboard-wireframe.png)
 - career page wireframe
-![Career Page](static/img/career%20page%20wireframe.png)
+![Career Page](static/img/career-page-wireframe.png)
 - Home page wireframe
-![Index](static/img/index%20wireframe.png)
+![Index](static/img/index-wireframe.png)
 - Admin Login wireframe
-![Admin login](static/img/amin_login%20wireframe.png)
+![Admin login](static/img/amin-login-wireframe.png)
 
 
 ## Index
